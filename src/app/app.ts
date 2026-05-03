@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { CoursesPage } from './courses-page/courses-page';
+import { CoursesManagerPage } from './courses-manager/courses-manager';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CoursesPage],
+  imports: [CoursesManagerPage],
   templateUrl: './app.html',
   styleUrls: ['./app.css']
 })
