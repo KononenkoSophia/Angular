@@ -1,0 +1,31 @@
+<main class="content-area">
+    <header>
+        <h2 class="main-heading">Знайти курс</h2>
+    </header>
+
+    <div class="search-container">
+        <span class="search-icon">🔍</span>
+        <input type="text" class="text-input" [(ngModel)]="searchTerm" (input)="onSearchInput($event)"
+            placeholder="Введіть назву для пошуку..." autocomplete="off">
+    </div>
+
+    <div class="results-container">
+        <ng-container *ngIf="results$ | async as coursesList">
+
+            <div class="empty-state" *ngIf="coursesList.length === 0">
+                <p>За запитом "<b>{{ searchTerm }}</b>" нічого не знайдено.</p>
+            </div>
+
+            <div class="list-item" *ngFor="let course of coursesList">
+                <div class="item-body">
+                    <h4 class="item-title">{{ course.title }}</h4>
+                    <p class="item-meta">Курс із напрямку <b>{{ course.category }}</b></p>
+                </div>
+                <div class="item-action">
+                    <div class="chip">{{ course.duration }}</div>
+                </div>
+            </div>
+
+        </ng-container>
+    </div>
+</main>
