@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { CoursesFilterPage } from './courses-filter/courses-filter';
+import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CoursesFilterPage],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './app.html',
   styleUrls: ['./app.css']
 })

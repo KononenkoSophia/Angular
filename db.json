@@ -1,0 +1,9 @@
+{
+  "courses": [
+    { "id": 1, "title": "Angular Basics", "category": "Frontend", "duration": "20 годин" },
+    { "id": 2, "title": "RxJS Fundamentals", "category": "Frontend", "duration": "16 годин" },
+    { "id": 3, "title": "TypeScript Essentials", "category": "Programming", "duration": "18 годин" },
+    { "id": 4, "title": "Node.js Intro", "category": "Backend", "duration": "22 годин" },
+    { "id": 5, "title": "REST API Basics", "category": "Backend", "duration": "14 годин" }
+  ]
+}

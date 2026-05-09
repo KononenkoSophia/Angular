@@ -1,0 +1,47 @@
+<main class="filter-area">
+    <header class="filter-header">
+        <div style="width: 100%; text-align: center;">
+            <h2 class="filter-heading">HTTP Courses List</h2>
+        </div>
+    </header>
+
+    <div class="results-list">
+        <!-- Стан завантаження -->
+        <div class="loader-container" *ngIf="loading$ | async">
+            <div class="spinner"></div>
+            <p>Loading courses from server...</p>
+        </div>
+
+        <!-- Стан помилки -->
+        <div class="error-container" *ngIf="error$ | async as errorMessage">
+            <div class="error-icon">⚠️</div>
+            <p>{{ errorMessage }}</p>
+            <button class="btn-retry" (click)="loadCourses()">Спробувати ще раз</button>
+        </div>
+
+        <!-- Успішне завантаження -->
+        <ng-container *ngIf="(loading$ | async) === false && (error$ | async) === null">
+            <ng-container *ngIf="courses$ | async as coursesList">
+                <div class="results-count">
+                    Завантажено: <strong>{{ coursesList.length }}</strong>
+                </div>
+
+                <div class="empty-state" *ngIf="coursesList.length === 0">
+                    <p>Список курсів порожній.</p>
+                </div>
+
+                <div class="course-item" *ngFor="let course of coursesList">
+                    <div class="course-body">
+                        <h4 class="course-title">{{ course.title }}</h4>
+                        <p class="course-meta">
+                            Категорія: <span class="course-category">{{ course.category }}</span>
+                        </p>
+                    </div>
+                    <div class="course-side">
+                        <div class="chip">{{ course.duration }}</div>
+                    </div>
+                </div>
+            </ng-container>
+        </ng-container>
+    </div>
+</main>
